@@ -1,5 +1,5 @@
 import { QueryTypes } from "sequelize";
-import { dbconnection as Connection } from "../../db/model"
+import { dbConnection as Connection } from "../../db/model"
 
 export class UserService{
     public async getAllUser(){

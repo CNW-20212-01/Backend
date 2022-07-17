@@ -1,6 +1,8 @@
 import { AdminService } from "../../admin/admin.service";
+import { bcrypt } from "../../admin/admin.service";
 
 const jwt = require('jsonwebtoken');
+
 
 export class AuthService{
     private adminService: AdminService;
@@ -9,14 +11,13 @@ export class AuthService{
         this.adminService = new AdminService();
     }
 
-    public authenticate({username, password} ) {
-        console.log(username + " :  " + password)
-        const admin = this.adminService.findAdmin(username)
-    
-        if (!admin) throw 'Username or password is incorrect';
-    
-        // create a jwt token that is valid for 7 days
-        const token = jwt.sign({ sub: admin.username }, process.env.JWT_SECRET, { expiresIn: process.env.JWT_EXPRIRE });
+    public async authenticate({email, password} ) {
+        const admin = await this.adminService.findAdmin(email);
+        console.log(admin);
+        if (!admin) throw 'email or password is incorrect';
+        if(!(await bcrypt.compare(password, admin.password))) throw 'email or password is incorrect!'
+        // create a jwt token 
+        const token = jwt.sign({ sub: admin }, process.env.JWT_SECRET, { expiresIn: process.env.JWT_EXPIRE });
     
         return token;
     }

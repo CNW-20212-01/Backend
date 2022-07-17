@@ -1,14 +1,14 @@
-## setup
+# setup
 install nodejs
 install mysql
 config file .env
 
 
-## how to run
-# install node_modules
+# how to run
+## step 1: install node_modules
 
 run: npm install
-# run
+## step2 2: run
 
 run: npm run dev
 
