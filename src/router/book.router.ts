@@ -8,7 +8,8 @@ export class BookRouter{
     }
 
     public initRouter(){
-        router.register('GET/book', (req,res) => this.bookController.getAllBooks(req, res));
+        router.register('GET/books', (req, res) => this.bookController.getAllBooks(req, res));
+        router.register('POST/book', (req, res) => this.bookController.addBook(req, res));
+        router.register('DELETE/book', (req, res) => this.bookController.deleteBook(req, res));
     }
-
 }

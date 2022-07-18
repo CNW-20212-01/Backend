@@ -17,7 +17,6 @@ export class Authorization{
        
         try {
             let decoded = jwt.verify(token, process.env.JWT_SECRET);
-            console.log(decoded)
             return true;
             
         } catch(err) {
@@ -33,7 +32,6 @@ export class Authorization{
     private getToken(req) {
         let token = req.headers.authorization;
         token = token.slice(7)
-        console.log(token); 
         return token;
     }
 }

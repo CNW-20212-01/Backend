@@ -1,6 +1,6 @@
 export const bodyParser = (req) => {
     return new Promise<void>((resolve, reject) => {
-      if (req.method !== 'POST') {
+      if (req.method !== 'POST' && req.method !== 'DELETE' && req.method !== 'GET') {
         resolve();
         return;
       }
