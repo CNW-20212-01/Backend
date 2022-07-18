@@ -32,6 +32,9 @@ export class BookController{
 
     // POST/book
     public async addBook(req, res){
+        if(!this.authorService.check(req, res)){
+            return;
+        }
         let book: BookDto = req.body;
 
         if(Object.keys(book).length === 0){
@@ -58,6 +61,9 @@ export class BookController{
 
     // DELETE/book
     public async deleteBook(req, res){
+        if(!this.authorService.check(req, res)){
+            return;
+        }
         const book_id = req.body.book_id;
         console.log(book_id);
         try {
