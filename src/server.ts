@@ -20,6 +20,6 @@ const server = http.createServer(async (req, res) => {
   handler(req, res);
 });
 console.log(router.routeLog);
-console.log("server start port: 3000") 
+console.log("server start port: " + process.env.APP_PORT) 
 
-server.listen(3000);
+server.listen(process.env.APP_PORT);
