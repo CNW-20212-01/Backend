@@ -1,7 +1,7 @@
 # setup
-> install nodejs
-> install mysql
-> config file .env
+## install nodejs.
+## install mysql.
+## config file .env.
 
 
 # how to run
