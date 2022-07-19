@@ -9,6 +9,11 @@ export class BookService {
         return book;
     }
 
+    public async getBookById(book_id: string){
+        const result = await dbConnection.query("Select * FROM `book` WHERE (`book_id` = '"+ book_id +"')", {type: QueryTypes.SELECT});
+        return result
+    }
+
     public async addBook(book: BookDto){
         book.book_id = uuidv4();
         const sql = 
@@ -29,8 +34,24 @@ export class BookService {
         return false;
     }
 
+    public async updateBook(book: BookDto){
+        const checkBookId = await this.checkBookId(book.book_id);
+        if(checkBookId){
+            const sql = 
+            " UPDATE `cnw_websellbook`.`book` SET " + 
+            "`Book_name` = '" + book.book_name +"', `genre` = '" + book.genre +"', `author_name` = '" + book.author_name +"', `price` = '" + book.price +"', `pages` = '" + book.pages +"', `publisher` = '" + book.publisher + 
+            "', `publishing_year` = '" + book.publishing_year +"', `purchased` = '" + book.purchased +"', `intro` = '" + book.intro +"', `image` = '" + book.image +"' WHERE (`book_id` = '" + book.book_id +"');"
+
+            const result = dbConnection.query(sql, {type: QueryTypes.UPDATE});
+            console.log(result)
+            return result;
+        }
+        return false;
+    }
+
     private async checkBookId(book_id: string){
         const result = await dbConnection.query("Select * FROM `cnw_websellbook`.`book` WHERE (`book_id` = '"+ book_id +"')", {type: QueryTypes.SELECT});
         return result.length > 0
     }
+
 }

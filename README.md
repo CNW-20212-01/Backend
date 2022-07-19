@@ -1,16 +1,16 @@
 # setup
-install nodejs
-install mysql
-config file .env
+> install nodejs
+> install mysql
+> config file .env
 
 
 # how to run
 ## step 1: install node_modules
 
-run: npm install
+> npm install
 ## step2 2: run
 
-run: npm run dev
+> npm run dev
 
 
 
@@ -26,6 +26,12 @@ run: npm run dev
 
 
 ### GET/books: get all book
+
+### GET/book: get book by id
+    body request ex:
+        {
+            "book_id": "4b842c0a-fcda-49d7-8a52-8f8757d42cb3"
+        }
 ### POST/book: register book
     + authorization ( add bearer token )
     body request ex: 
@@ -46,4 +52,21 @@ run: npm run dev
     body request ex: 
     {
         "book_id": "id1",
+    }
+
+### POST/book/update: update book
+     + authorization ( add bearer token )
+    body request ex: 
+    {   
+        "book_id": "id_book",
+        "book_name": "test1",
+        "genre": "asdf",
+        "author_name": "asdf",
+        "price": 5000,
+        "pages": 213,
+        "publisher": "nguyan thai",
+        "publishing_year": 2020,
+        "purchased": 12,
+        "intro": "asdasdf",
+        "image": "as"
     }
