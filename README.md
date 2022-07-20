@@ -70,3 +70,28 @@
         "intro": "asdasdf",
         "image": "as"
     }
+
+
+## BILL API
+
+### GET/bills
+    + authorization ( add bearer token )
+### POST/bill
+    + authorization ( add bearer token )
+    body request ex:
+    {
+        "phone_number": "1233",
+        "name": "string",
+        "total_money": 1234,
+        "address": "address",
+        "bookList": [
+            {
+                "book_id": "asdf",
+                "quantity": 3
+            },
+            {
+                "book_id": "asdfa",
+                "quantity": 3
+            }
+        ]
+    }
