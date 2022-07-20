@@ -2,7 +2,7 @@ create database cnw_websellbook;
 
 use cnw_websellbook;
 create table book (
-		book_id varchar(50),
+	book_id varchar(50),
         Book_name varchar(500),
         genre varchar(50),
         author_name varchar(50),
@@ -11,7 +11,7 @@ create table book (
         publisher varchar(50),
         publishing_year int,
         purchased int,
-        intro varchar(5000),
+        intro varchar(20000),
         image varchar(500),
 	constraint book_pk primary key (book_id));
 
@@ -24,14 +24,17 @@ create table admin(
 
       
 create table bill(
-		bill_id varchar(50),
+	bill_id varchar(50),
         date_bill date,
+        phone_number varchar(10),
+        name varchar(50),
+        total_monney int,
         address varchar(500),
 	constraint bill_pk primary key (bill_id)
 );
 
 create table bill_detail(
-		bill_detail_id varchar(50),
+	bill_detail_id varchar(50),
         bill_id varchar(50),
         book_id varchar(50),
         quantity int,

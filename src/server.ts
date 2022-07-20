@@ -1,5 +1,5 @@
 import { bodyParser } from "./Parser/bodyParser";
-import { routerinit } from "./router/idex";
+import { routerInit } from "./router/idex";
 import { AdminService } from "./module/admin/admin.service";
 
 const http = require('http');
@@ -8,7 +8,7 @@ const router = require('./router/router');
 const adminService = new AdminService();
 adminService.register()
 
-routerinit.forEach((routerClass) => {
+routerInit.forEach((routerClass) => {
   const routerInstance = new routerClass();
   routerInstance.initRouter();
 })

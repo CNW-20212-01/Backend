@@ -13,7 +13,7 @@ export class AdminService {
             await dbConnection.query(sql, { type: QueryTypes.INSERT });
         }
         catch(err){
-           
+           console.log(err)
         }
         
     }
