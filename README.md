@@ -77,7 +77,6 @@
 ### GET/bills
     + authorization ( add bearer token )
 ### POST/bill
-    + authorization ( add bearer token )
     body request ex:
     {
         "phone_number": "1233",
@@ -95,3 +94,13 @@
             }
         ]
     }
+
+### DELETE/bill
+    + authorization ( add bearer token )
+    body request ex:
+    {
+        "bill_id": "asd"
+    }
+
+## Pay api
+### POST/pay
